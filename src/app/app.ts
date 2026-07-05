@@ -1,9 +1,11 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+import { EncabezadoComponent } from './encabezado/encabezado.component';
+import { Usuario } from "./usuario/usuario";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [EncabezadoComponent, Usuario],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
