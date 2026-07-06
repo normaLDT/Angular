@@ -1,37 +1,30 @@
 <app-encabezado></app-encabezado>
 <main>
     <ul id="usuarios">
-        <li>
-            <app-usuario [id] = "usuarios[0].id" 
-            [avatar] = "usuarios[0].avatar" 
-            [nombre] = "usuarios[0].nombre"
+
+        @for(usuario of usuarios; track usuario.id){
+            <!-- <li *ngFor="let usuario of usuarios"> -->
+            <li>
+            <app-usuario 
+            [seleccionado]="usuario.id===idUsuarioSeleccionado"
+            [usuario]="usuario"
             (seleccion)="alSeleccionarUsuario($event)"
             />
         </li>
-        <li>
-            <app-usuario [id] = "usuarios[1].id" 
-            [avatar] = "usuarios[1].avatar" 
-            [nombre] = "usuarios[1].nombre"
-            (seleccion)="alSeleccionarUsuario($event)"
-            />
-        </li>
-        <li>
-            <app-usuario [id] = "usuarios[2].id" 
-            [avatar] = "usuarios[2].avatar" 
-            [nombre] = "usuarios[2].nombre"
-            (seleccion)="alSeleccionarUsuario($event)"
-            />
-        </li>
-        <li>
-            <app-usuario [id] = "usuarios[3].id" 
-            [avatar] = "usuarios[3].avatar" 
-            [nombre] = "usuarios[3].nombre"
-            (seleccion)="alSeleccionarUsuario($event)"
-            />
-        </li>
+        }
     </ul>
 
-    <app-tareas
-    [nombre]="usuarioSeleccionado.nombre"
+    @if (usuarioSeleccionado) {
+        <!-- <app-tareas *ngIf="usuarioSeleccionado; else textoCondicional" -->
+        <app-tareas
+        [idUsuario]="usuarioSeleccionado.id"
+        [nombre]="usuarioSeleccionado.nombre "
     />
+    }@else {
+     <ng-template #textoCondicional>
+        <p id="textoCondicional"> Selecciona un usuario </p>
+    </ng-template>
+    }
+
+    
 </main>
