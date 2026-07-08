@@ -1,15 +1,19 @@
 import { Component, Input } from '@angular/core';
 import { Tarea } from "./tarea/tarea";
+import { NuevaTarea } from './nueva-tarea/nueva-tarea';
 
 @Component({
   selector: 'app-tareas',
-  imports: [Tarea],
+  imports: [Tarea, NuevaTarea],
   templateUrl: './tareas.html',
   styleUrl: './tareas.css',
 })
 export class Tareas {
   @Input({required:true}) idUsuario!: string;
   @Input({required:true}) nombre?: string;
+
+  estaAgregandoTareaNueva = false;
+
   tareas = [
     {
       id: 't1',
@@ -36,6 +40,21 @@ export class Tareas {
 
   get tareasUsuarioSeleccionado(){
     return this.tareas.filter((tarea) => tarea.idUsuario === this.idUsuario);
+  }
+
+  alCompletarTarea(id: string){
+    
+    this.tareas = this.tareas.filter((tarea) => tarea.id !== id);
+
+  }
+
+  alIniciarNuevaTarea(){
+    this.estaAgregandoTareaNueva = true;
+
+  }
+
+  alCancelarTareaNueva(){
+    this.estaAgregandoTareaNueva = false;
   }
 
 }
