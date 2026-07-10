@@ -2,10 +2,10 @@ import { Component, computed, EventEmitter, Input, input, output, Output} from '
 
 import { USUARIOS_FALSOS } from '../usuarios-falsos';
 import { required } from '@angular/forms/signals';
-
 const indiceAleatorio = Math.floor(Math.random()*USUARIOS_FALSOS.length);
 
 import { type User } from './usuario.model';
+import { Tarjeta } from "../compartida/tarjeta/tarjeta";
 
 // type User = {
 //   id: string,
@@ -16,7 +16,7 @@ import { type User } from './usuario.model';
 @Component({
   selector: 'app-usuario',
   standalone: true,
-  imports: [],
+  imports: [Tarjeta],
   templateUrl: './usuario.html',
   styleUrl: './usuario.css',
 })

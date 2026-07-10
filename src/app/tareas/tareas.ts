@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { Tarea } from "./tarea/tarea";
 import { NuevaTarea } from './nueva-tarea/nueva-tarea';
+import { type NuevaTareaInfo } from './tarea/tarea.model';
+import { TareasService } from './tareas.service';
 
 @Component({
   selector: 'app-tareas',
@@ -10,9 +12,18 @@ import { NuevaTarea } from './nueva-tarea/nueva-tarea';
 })
 export class Tareas {
   @Input({required:true}) idUsuario!: string;
-  @Input({required:true}) nombre?: string;
-
+  @Input({ required: true }) nombre?: string;
   estaAgregandoTareaNueva = false;
+  private tareasService = new TareasService();
+
+  constructor(tareasService: TareasService) {
+    this.tareasService = tareasService;
+  }
+
+  
+
+
+  
 
   tareas = [
     {
@@ -39,22 +50,23 @@ export class Tareas {
   ];
 
   get tareasUsuarioSeleccionado(){
-    return this.tareas.filter((tarea) => tarea.idUsuario === this.idUsuario);
+    return this.tareasService.obtenerTareasDeUsuario(this.idUsuario);
   }
 
-  alCompletarTarea(id: string){
-    
-    this.tareas = this.tareas.filter((tarea) => tarea.id !== id);
-
-  }
+   
 
   alIniciarNuevaTarea(){
     this.estaAgregandoTareaNueva = true;
 
   }
 
-  alCancelarTareaNueva(){
+  alCerrarTareaNueva(){
     this.estaAgregandoTareaNueva = false;
+  }
+
+  alAgregarTarea(infoDeTarea: NuevaTareaInfo){
+    this.estaAgregandoTareaNueva = false;
+
   }
 
 }
