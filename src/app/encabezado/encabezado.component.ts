@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: 'app-encabezado',
-    standalone: true,
+    standalone: false,
     templateUrl: './encabezado.component.html',
     styleUrl: './encabezado.component.css'
 })

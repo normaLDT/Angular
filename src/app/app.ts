@@ -1,17 +1,17 @@
 import { Component, signal } from '@angular/core';
 
-import { EncabezadoComponent } from './encabezado/encabezado.component';
-import { Usuario } from "./usuario/usuario";
+
 import { USUARIOS_FALSOS } from './usuarios-falsos';
-import { Tareas } from "./tareas/tareas";
+
 // import { NgFor } from '@angular/common';
 // import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-root',
   // imports: [EncabezadoComponent, Usuario, Tareas, NgFor, NgIf],
-  imports: [EncabezadoComponent, Usuario, Tareas],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  standalone:false,
+  
 })
 export class App {
   protected readonly title = signal('my-app');

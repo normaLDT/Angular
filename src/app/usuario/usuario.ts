@@ -15,8 +15,7 @@ import { Tarjeta } from "../compartida/tarjeta/tarjeta";
 
 @Component({
   selector: 'app-usuario',
-  standalone: true,
-  imports: [Tarjeta],
+  standalone: false,
   templateUrl: './usuario.html',
   styleUrl: './usuario.css',
 })

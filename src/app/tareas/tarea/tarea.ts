@@ -7,9 +7,10 @@ import { TareasService } from '../tareas.service';
 
 @Component({
   selector: 'app-tarea',
-  imports: [Tarjeta, DatePipe],
+  imports: [],
   templateUrl: './tarea.html',
   styleUrl: './tarea.css',
+  standalone: false
 })
 export class Tarea {
   @Input({required: true}) tarea!: Homework;

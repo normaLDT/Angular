@@ -5,9 +5,9 @@ import { TareasService } from '../tareas.service';
 
 @Component({
   selector: 'app-nueva-tarea',
-  imports: [FormsModule],
   templateUrl: './nueva-tarea.html',
   styleUrl: './nueva-tarea.css',
+  standalone: false
 })
 export class NuevaTarea {
   @Input({ required: true }) idUsuario!: string;

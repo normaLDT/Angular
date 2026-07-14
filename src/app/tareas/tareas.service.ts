@@ -51,7 +51,7 @@ export class TareasService{
 
   eliminarTarea(id: string) {
     this.tareas = this.tareas.filter((tarea) => tarea.id !== id);
-    this.guardarTareas();
+    this.guardarTareas(); 
   }
 
   private guardarTareas() {

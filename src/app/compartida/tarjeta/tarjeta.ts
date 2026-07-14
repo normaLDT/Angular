@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { ɵEmptyOutletComponent } from "@angular/router";
+
 
 @Component({
   selector: 'app-tarjeta',
-  imports: [ɵEmptyOutletComponent],
+  imports: [],
   templateUrl: './tarjeta.html',
   styleUrl: './tarjeta.css',
+  standalone: false
 })
 export class Tarjeta {}

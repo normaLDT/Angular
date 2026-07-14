@@ -6,9 +6,10 @@ import { TareasService } from './tareas.service';
 
 @Component({
   selector: 'app-tareas',
-  imports: [Tarea, NuevaTarea],
+  imports: [],
   templateUrl: './tareas.html',
   styleUrl: './tareas.css',
+  standalone: false
 })
 export class Tareas {
   @Input({required:true}) idUsuario!: string;
